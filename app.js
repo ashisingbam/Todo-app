@@ -81,6 +81,19 @@ removeItem.forEach((item) => {
     item.parentElement.parentElement.style.display = 'none'
   })
 })
+function filter() {
+  let liCount = 0
+  for (li of itemsLi) {
+    if (li.classList.contains('uncheck-list')) {
+      liCount = liCount + 1
+    }
+  }
+  const leftItems = document.querySelector('.left-items')
+  leftItems.innerText = `${liCount} items left`
+  // console.log(liCount)
+}
+filter()
 
+function update() {}
 
 
