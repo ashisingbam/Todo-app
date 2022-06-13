@@ -61,5 +61,21 @@ currentUl.addEventListener('keypress', function ashi(event) {
     }
   }
 })
+markCircle.forEach((circle) => {
+  circle.addEventListener('click', () => {
+    circle.querySelector('img').classList.toggle('display-block')
+    circle.classList.toggle('background-image-circle')
+    circle.nextElementSibling.classList.toggle('item-title-stike-through')
+    circle.nextElementSibling.nextElementSibling.classList.toggle(
+      'display-none'
+    )
+    circle.parentNode.parentElement.classList.toggle('uncheck-list')
+    circle.parentNode.parentElement.classList.toggle('completed')
+    filter()
+    console.log(circle.parentNode.parentElement)
+    console.log(circle.parentNode.parentElement)
+  })
+})
+
 
 
