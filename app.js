@@ -76,6 +76,11 @@ markCircle.forEach((circle) => {
     console.log(circle.parentNode.parentElement)
   })
 })
+removeItem.forEach((item) => {
+  item.addEventListener('click', () => {
+    item.parentElement.parentElement.style.display = 'none'
+  })
+})
 
 
 
