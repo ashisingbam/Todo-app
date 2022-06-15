@@ -13,18 +13,15 @@ const itemsLiArray = Array.from(itemsLi)
 // console.log(currentLi)
 
 currentInput.addEventListener('click', () => {
-  currentInput.value = ""
+  currentInput.value = ''
 })
 
-console.log(itemsLiArray)
 
 itemsLiArray.forEach((item, i) => {
   item.addEventListener('mouseenter', () => {
-    console.log('hello')
     removeItem[i].style.display = 'block'
   })
   item.addEventListener('mouseleave', () => {
-    console.log('hello')
     removeItem[i].style.display = 'none'
   })
 })
@@ -33,6 +30,8 @@ currentUl.addEventListener('keypress', function ashi(event) {
   if (event.key === 'Enter') {
     if (currentInput.value) {
       let newLi = document.createElement('li')
+      newLi.classList.add('draggable')
+      newLi.setAttribute('draggable', true)
       // Array.from(itemsLi).push(newLi)
       const newDiv = document.createElement('div')
       newDiv.classList.add('add-new-item')
@@ -78,6 +77,8 @@ currentUl.addEventListener('keypress', function ashi(event) {
       itemsLiArray.push(newLi)
       filter()
       console.log(itemsLiArray)
+      makeDraggable() 
+      
     }
   }
 })
@@ -118,12 +119,14 @@ function filter() {
 filter()
 
 const selectAll = document.querySelector('.select-all')
-console.log(selectAll)
 selectAll.addEventListener('click', () => {
   itemsLiArray.filter((li) => {
-  if(li.classList.contains('uncheck-list') || li.classList.contains('completed')) {
-    li.style.display = 'block'
-  } 
+    if (
+      li.classList.contains('uncheck-list') ||
+      li.classList.contains('completed')
+    ) {
+      li.style.display = 'block'
+    }
   })
 })
 
@@ -134,20 +137,18 @@ selectActive.addEventListener('click', () => {
       console.log(li)
       li.style.display = 'block'
       return li
-    }
-    else {
+    } else {
       li.style.display = 'none'
     }
   })
 })
 
-const selectCompleted = document.querySelector('.select-completed') 
+const selectCompleted = document.querySelector('.select-completed')
 selectCompleted.addEventListener('click', () => {
   itemsLiArray.filter((li) => {
-    if(li.classList.contains('completed')) {
+    if (li.classList.contains('completed')) {
       li.style.display = 'block'
-    }
-    else {
+    } else {
       li.style.display = 'none'
     }
   })
@@ -156,8 +157,58 @@ selectCompleted.addEventListener('click', () => {
 const clearCompleted = document.querySelector('.clear-completed')
 clearCompleted.addEventListener('click', () => {
   itemsLiArray.filter((li) => {
-    if(li.classList.contains('completed')) {
+    if (li.classList.contains('completed')) {
       li.remove()
     }
   })
 })
+
+function makeDraggable() {
+  const draggables = document.querySelectorAll('.draggable')
+  const containers = document.querySelectorAll('.container')
+
+  draggables.forEach((draggable) => {
+    draggable.addEventListener('dragstart', () => {
+      draggable.classList.add('dragging')
+    })
+
+    draggable.addEventListener('dragend', () => {
+      draggable.classList.remove('dragging')
+    })
+  })
+
+  containers.forEach((container) => {
+    container.addEventListener('dragover', (e) => {
+      e.preventDefault()
+      const afterElement = getDragAfterElement(container, e.clientY)
+      const draggable = document.querySelector('.dragging')
+      if (afterElement == null) {
+        container.appendChild(draggable)
+      } else {
+        container.insertBefore(draggable, afterElement)
+      }
+    })
+  })
+
+  function getDragAfterElement(container, y) {
+    const draggableElements = [
+      ...container.querySelectorAll('.draggable:not(.dragging)'),
+    ]
+
+    return draggableElements.reduce(
+      (closest, child) => {
+        const box = child.getBoundingClientRect()
+        const offset = y - box.top + box.height / 2
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child }
+        } else {
+          return closest
+        }
+      },
+      { offset: Number.NEGATIVE_INFINITY }
+    ).element 
+  }
+}
+
+makeDraggable() 
+

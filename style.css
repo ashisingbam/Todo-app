@@ -91,7 +91,7 @@ input {
   margin: 0;
   border-radius: 5px;
   box-shadow: 0px 10px 20px 0px #ddd;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 ul {
@@ -247,6 +247,14 @@ input,
 .completed {
 }
 
+.lower-container p {
+  font-size: 0.9rem;
+  color: #999;
+  opacity: 0.8;
+  margin-top: 0;
+
+}
+
 @media(max-width: 800px) {
   
   .header-container,
@@ -291,6 +299,10 @@ input,
     top: 4rem;
     left: 0rem;
     border-radius: 5px;
+  }
+  .lower-container p {
+    margin-top: 5rem;
+    font-size: 1rem;
   }
 
 }
