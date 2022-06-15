@@ -16,6 +16,9 @@
     <div class="todo-container">
       <div class="header-container">
         <h1>T O D O</h1>
+        <div class="change-mode">
+          <img src="./images/icon-moon.svg" alt="">
+        </div>
       </div>
       <div class="body-container">
         <div class="current-item">
@@ -23,67 +26,96 @@
             <li>
               <div class="flex">
                 <div class="select-circle"></div>
-                <input placeholder="Currently typing"></input>
-              </div>
-              <!-- <div class="save-added-item">
-                
-              </div> -->
-            </li>
-          </ul>
-        </div>
-        <hr>
-        <div class="items-container items-list">
-          <ul>
-            <li class="uncheck-list">
-              <div class="add-new-item">
-                <div class="select-circle">
-                  <img src="./images/icon-check.svg" alt="">
-                </div>
-                <p class="item-title">Complete online JavaScript course</p>
-                <!-- <input readonly value="Complete online JavaScript course"></input> -->
-                <div class="remove-added-item"></div>
-              </div>
-            </li>
-            <li class="uncheck-list">
-              <div class="add-new-item">
-                <div class="select-circle">
-                  <img class="check-icon" src="./images/icon-check.svg" alt="">
-                </div>
-                <p class="item-title">Jog around the park 3x</p>
-                <!-- <input readonly value="Jog around the park 3x"></input> -->
-                <div class="remove-added-item"></div>
-
-              </div>
-            </li>
-            <li class="uncheck-list">
-              <div class="add-new-item">
-                <div class="select-circle">
-                  <img src="./images/icon-check.svg" alt="">
-                </div>
-                <p class="item-title">10 minutes meditation</p>
-                <!-- <input readonly value="10 minutes meditation"></input> -->
-                <div class="remove-added-item"></div>
+                <input value="Currently typing "></input>
               </div>
             </li>
           </ul>
         </div>
-        <div class="todo-summary">
-          <div class="left-items">
-            <p>3 items left</p>
-          </div>
-          <div class="items-state">
-            <p class="select-all">All</p>
-            <p class="select-active">Active</p>
-            <p class="select-completed">
-              Completed
-            </p>
-          </div>
-          <div class="clear-completed">
-            <p>
-              Clear Completed
-            </p>
-          </div>
+        <div class="items-container">
+          <div class="items-list">
+            <ul>
+              <li class="completed">
+                <div class="add-new-item">
+                  <div class="select-circle background-image-circle">
+                    <img class="display-block" src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title item-title-stike-through">Complete online JavaScript course</p>
+                  <div class="remove-added-item display-none"></div>
+                </div>
+              </li>
 
+              <li class="uncheck-list">
+                <div class="add-new-item">
+                  <div class="select-circle">
+                    <img src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title">Jog around the park 3x</p>
+                  <div class="remove-added-item"></div>
+                </div>
+              </li>
+              <li class="uncheck-list">
+                <div class="add-new-item">
+                  <div class="select-circle">
+                    <img class="check-icon" src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title">10 minutes meditation</p>
+                  <div class="remove-added-item"></div>
+
+                </div>
+              </li>
+
+              <li class="uncheck-list">
+                <div class="add-new-item">
+                  <div class="select-circle">
+                    <img src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title">Read for 1 hour</p>
+                  <div class="remove-added-item"></div>
+                </div>
+              </li>
+
+              <li class="uncheck-list">
+                <div class="add-new-item">
+                  <div class="select-circle">
+                    <img src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title">Pick up groceries</p>
+                  <div class="remove-added-item"></div>
+                </div>
+              </li>
+
+              <li class="uncheck-list">
+                <div class="add-new-item">
+                  <div class="select-circle">
+                    <img src="./images/icon-check.svg" alt="">
+                  </div>
+                  <p class="item-title">Complete Todo App on Frontend Mentor</p>
+                  <div class="remove-added-item"></div>
+                </div>
+              </li>
+
+              
+
+            </ul>
+          </div>
+          <div class="todo-summary">
+            <div class="left-items filter-items">
+              <p>3 items left</p>
+            </div>
+            <div class="items-state">
+              <p class="select-all filter-items-select">All</p>
+              <p class="select-active filter-items-select">Active</p>
+              <p class="select-completed filter-items-select">
+                Completed
+              </p>
+            </div>
+            <div class="clear-completed filter-items">
+              <p>
+                Clear Completed
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
       <div class="lower-container">
