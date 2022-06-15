@@ -257,4 +257,63 @@ input,
 .completed {
 }
 
+@media(max-width: 800px) {
+  
+  .header-container,
+  .body-container,
+  .lower-container {
+    zoom: 85%;
+  }
+  .todo-container {
+    zoom: 100%;
+    background-size: max(80rem, 100vw);
 
+  }
+
+}
+
+@media (max-width: 550px) {
+.parent-container {
+  background-color: rgb(240, 240, 240);
+}
+
+  .todo-container {
+    background-image: url(./images/bg-mobile-light.jpg);
+    background-size: max(30rem, 100vw);
+    zoom: 100%;
+  }
+  .header-container {
+    min-width: 25rem;
+  }
+  .body-container  {
+    min-width: 20rem;
+  }
+  
+
+  .todo-summary {
+    position: relative;
+  }
+
+  .items-state {
+    position: absolute;
+    background-color: white;
+    padding: 1.2rem 7.05rem;
+    top: 4rem;
+    left: 0rem;
+    border-radius: 5px;
+  }
+
+}
+
+@media (max-width: 410px) {
+  .header-container,
+  .body-container,
+  .lower-container {
+    zoom: 65%;
+  }
+  .todo-container {
+    zoom: 100%;
+    background-size: max(20rem, 100vw);
+
+  }
+}
