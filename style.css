@@ -94,8 +94,6 @@ input {
   margin-bottom: 3rem;
 }
 
-.items-list {
-}
 ul {
   padding-left: 0rem;
   margin: 0;
@@ -107,14 +105,6 @@ ul {
   border-bottom: 1px solid rgb(225, 225, 225);
   cursor: pointer;
 }
-
-/* .item-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 35rem;
-
-} */
 
 li {
   list-style-type: none;
