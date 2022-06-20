@@ -21,7 +21,6 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.125rem;
   flex-wrap: wrap;
-  /* background-color: pink; */
 }
 
 .todo-container {
@@ -346,16 +345,13 @@ body.dark .todo-container {
 
 body.dark .items-container {
   box-shadow: none;
-  /* background-repeat: no-repeat;
-  background-size: max(100rem, 100vw);
-  background-position: top; */
+
 }
 
 body.dark .current-item,
 body.dark .items-container,
 body.dark .items-state {
   background-color: hsl(235, 24%, 19%);
-  /* background-color: var(--bg-color-dark); */
 }
 
 body.dark ul {

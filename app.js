@@ -10,10 +10,6 @@ const itemsLiArray = Array.from(itemsLi)
 const bodyContainer = document.querySelector('body')
 const changeMode = document.querySelector('.change-mode')
 const changeModeImg = changeMode.querySelector('img')
-// console.log(markCircle)
-// console.log(itemsLi)
-// console.log(itemsUl)
-// console.log(currentLi)
 
 changeMode.addEventListener('click', () => {
   bodyContainer.classList.toggle('dark')
@@ -38,7 +34,6 @@ currentUl.addEventListener('keypress', function ashi(event) {
       let newLi = document.createElement('li')
       newLi.classList.add('draggable')
       newLi.setAttribute('draggable', true)
-      // Array.from(itemsLi).push(newLi)
       const newDiv = document.createElement('div')
       newDiv.classList.add('add-new-item')
       const newCircle = document.createElement('div')
@@ -105,8 +100,6 @@ markCircle.forEach((circle) => {
     circle.parentNode.parentElement.classList.toggle('uncheck-list')
     circle.parentNode.parentElement.classList.toggle('completed')
     filter()
-    // console.log(circle.parentNode.parentElement)
-    // console.log(circle.parentNode.parentElement)
   })
 })
 removeItem.forEach((item) => {
@@ -126,7 +119,6 @@ function filter() {
   }
   const leftItems = document.querySelector('.left-items')
   leftItems.innerText = `${liCount} items left`
-  // console.log(liCount)
 }
 filter()
 
