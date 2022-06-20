@@ -269,7 +269,6 @@ input,
   margin-top: 0;
 }
 
-
 @media (max-width: 800px) {
   .header-container,
   .body-container,
@@ -305,7 +304,6 @@ input,
   }
   .add-new-item {
     padding-right: 3rem;
-
   }
   .items-state {
     position: absolute;
@@ -332,5 +330,73 @@ input,
     background-size: max(20rem, 100vw);
   }
 }
+/* Dark Mode  */
 
+body.dark {
+  background-color: hsl(235, 21%, 11%);
+}
 
+body.dark .change-mode {
+  background-image: url(./images/icon-sun.svg);
+}
+
+body.dark .todo-container {
+  background-image: url('./images/bg-desktop-dark.jpg');
+}
+
+body.dark .items-container {
+  box-shadow: none;
+  /* background-repeat: no-repeat;
+  background-size: max(100rem, 100vw);
+  background-position: top; */
+}
+
+body.dark .current-item,
+body.dark .items-container,
+body.dark .items-state {
+  background-color: hsl(235, 24%, 19%);
+  /* background-color: var(--bg-color-dark); */
+}
+
+body.dark ul {
+  color: var(--bg-color-light);
+}
+
+body.dark input {
+  background-color: hsl(235, 24%, 19%);
+  color: var(--bg-color-light);
+}
+
+body.dark .add-new-item {
+  border-bottom: 1px solid rgba(202, 205, 232, 0.162);
+}
+
+body.dark .select-circle {
+  border: 1px solid rgba(202, 205, 232, 0.162);
+}
+
+body.dark .select-circle:hover {
+  border: 1px solid hsl(234, 39%, 85%);
+  transition: border 0.1s ease-in;
+}
+
+body.dark .filter-items:hover {
+  color: var(--bg-color-light);
+  transition: all 0.1s ease-in;
+}
+
+body.dark .filter-items-select:hover {
+  color: var(--bg-color-light);
+  transition: all 0.1s ease-in;
+}
+
+@media (max-width: 550px) {
+  body.dark .parent-container {
+    background-color: hsl(235, 21%, 11%);
+  }
+
+  body.dark .todo-container {
+    background-image: url(./images/bg-mobile-dark.jpg);
+    background-size: max(30rem, 100vw);
+  }
+}
