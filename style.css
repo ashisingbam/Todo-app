@@ -7,15 +7,21 @@
 html,
 body {
   margin: 0;
+  --bg-color-light: white;
+  --text-color: black;
+  --bg-color-dark: hsl(237, 14%, 26%);
+  color: var(--text-color);
 }
 
 .parent-container {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   flex-direction: column;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.125rem;
+  flex-wrap: wrap;
+  /* background-color: pink; */
 }
 
 .todo-container {
@@ -23,7 +29,7 @@ body {
   background-repeat: no-repeat;
   background-size: max(100rem, 100vw);
   background-position: top;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -43,6 +49,10 @@ h1 {
 
 .change-mode {
   cursor: pointer;
+  background-image: url('./images/icon-moon.svg');
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
 }
 
 .body-container {
@@ -50,7 +60,7 @@ h1 {
 }
 
 .current-item {
-  background-color: white;
+  background-color: var(--bg-color-light);
   padding: 0.8rem 1.2rem;
   margin: 0;
   border-radius: 5px;
@@ -87,11 +97,14 @@ input {
 }
 
 .items-container {
-  background-color: white;
+  background-color: var(--bg-color-light);
   margin: 0;
   border-radius: 5px;
-  box-shadow: 0px 10px 20px 0px #ddd;
+  box-shadow: 50px 50px 20px -50px #ddd, -50px 50px 20px -50px #ddd;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 ul {
@@ -101,6 +114,7 @@ ul {
 
 .add-new-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: 1px solid rgb(225, 225, 225);
   cursor: pointer;
@@ -163,9 +177,10 @@ input,
 .item-title {
   outline: none;
   border: none;
+  max-width: 21rem;
 }
 
-.item-title-stike-through {
+.item-title-strike-through {
   opacity: 0.3;
   text-decoration: line-through;
 }
@@ -177,7 +192,7 @@ input,
   width: 17px;
   margin-left: 10px;
   margin-right: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: pointer;
   position: absolute;
   right: 15px;
@@ -252,11 +267,10 @@ input,
   color: #999;
   opacity: 0.8;
   margin-top: 0;
-
 }
 
-@media(max-width: 800px) {
-  
+
+@media (max-width: 800px) {
   .header-container,
   .body-container,
   .lower-container {
@@ -265,15 +279,14 @@ input,
   .todo-container {
     zoom: 100%;
     background-size: max(80rem, 100vw);
-
   }
-
 }
 
 @media (max-width: 550px) {
-.parent-container {
-  background-color: rgb(240, 240, 240);
-}
+  body,
+  .parent-container {
+    background-color: #eee;
+  }
 
   .todo-container {
     background-image: url(./images/bg-mobile-light.jpg);
@@ -281,21 +294,23 @@ input,
     zoom: 100%;
   }
   .header-container {
-    min-width: 25rem;
+    min-width: 28rem;
   }
-  .body-container  {
+  .body-container {
     min-width: 20rem;
   }
-  
 
   .todo-summary {
     position: relative;
   }
+  .add-new-item {
+    padding-right: 3rem;
 
+  }
   .items-state {
     position: absolute;
-    background-color: white;
-    padding: 1.2rem 7.05rem;
+    background-color: var(--bg-color-light);
+    padding: 1.2rem 8.55rem;
     top: 4rem;
     left: 0rem;
     border-radius: 5px;
@@ -304,7 +319,6 @@ input,
     margin-top: 5rem;
     font-size: 1rem;
   }
-
 }
 
 @media (max-width: 410px) {
@@ -316,6 +330,7 @@ input,
   .todo-container {
     zoom: 100%;
     background-size: max(20rem, 100vw);
-
   }
 }
+
+

@@ -7,15 +7,21 @@ const itemsLi = itemsUl.querySelectorAll('li')
 const markCircle = itemsUl.querySelectorAll('.select-circle')
 const removeItem = itemsUl.querySelectorAll('.remove-added-item')
 const itemsLiArray = Array.from(itemsLi)
+const bodyContainer = document.querySelector('body')
+const changeMode = document.querySelector('.change-mode')
+const changeModeImg = changeMode.querySelector('img')
 // console.log(markCircle)
 // console.log(itemsLi)
 // console.log(itemsUl)
 // console.log(currentLi)
 
+changeMode.addEventListener('click', () => {
+  bodyContainer.classList.toggle('dark')
+})
+
 currentInput.addEventListener('click', () => {
   currentInput.value = ''
 })
-
 
 itemsLiArray.forEach((item, i) => {
   item.addEventListener('mouseenter', () => {
@@ -51,7 +57,7 @@ currentUl.addEventListener('keypress', function ashi(event) {
         circleImg.classList.toggle('display-block')
         newCircle.classList.toggle('background-image-circle')
         newCircle.nextElementSibling.classList.toggle(
-          'item-title-stike-through'
+          'item-title-strike-through'
         )
         newCircle.nextElementSibling.nextElementSibling.classList.toggle(
           'display-none'
@@ -73,12 +79,18 @@ currentUl.addEventListener('keypress', function ashi(event) {
       newDiv.append(newRemoveIcon)
       newLi.append(newDiv)
       newLi.classList.add('uncheck-list')
+
+      newLi.addEventListener('mouseenter', () => {
+        newRemoveIcon.style.display = 'block'
+      })
+      newLi.addEventListener('mouseleave', () => {
+        newRemoveIcon.style.display = 'none'
+      })
+
       itemsUl.append(newLi)
       itemsLiArray.push(newLi)
       filter()
-      console.log(itemsLiArray)
-      makeDraggable() 
-      
+      makeDraggable()
     }
   }
 })
@@ -86,7 +98,7 @@ markCircle.forEach((circle) => {
   circle.addEventListener('click', () => {
     circle.querySelector('img').classList.toggle('display-block')
     circle.classList.toggle('background-image-circle')
-    circle.nextElementSibling.classList.toggle('item-title-stike-through')
+    circle.nextElementSibling.classList.toggle('item-title-strike-through')
     circle.nextElementSibling.nextElementSibling.classList.toggle(
       'display-none'
     )
@@ -206,9 +218,8 @@ function makeDraggable() {
         }
       },
       { offset: Number.NEGATIVE_INFINITY }
-    ).element 
+    ).element
   }
 }
 
-makeDraggable() 
-
+makeDraggable()
